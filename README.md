@@ -27,21 +27,36 @@ export default {
   plugins: [
     removeExports({
       match() {
-        return ['remove_this_export']
+        return ['getServerSideProps']
       },
     }),
   ],
 }
 ```
 
-Now if you have a `foo.ts`:
+Now if you have a `index.ts`:
 
-```ts
-export let keep_this_export = 1
-export let remove_this_export = 2
+```tsx
+import fs from 'fs'
+
+export const getServerSideProps = () => {
+  return {
+    content: fs.readFileSync('./foo.txt', 'utf-8'),
+  }
+}
+
+export default ({ content }) => {
+  return <div>{content}</div>
+}
 ```
 
-`remove_this_export` will be removed from the bundled code!
+The output will be:
+
+```ts
+export default ({ content }) => {
+  return <div>{content}</div>
+}
+```
 
 Advanced usage:
 
