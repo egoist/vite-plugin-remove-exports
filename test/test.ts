@@ -28,7 +28,7 @@ test('build', async () => {
 })
 
 test('dev', async () => {
-  const cmd = execa('npm', ['run', 'dev-fixture'])
+  const cmd = execa('npm', ['run', 'dev-fixture'], { stdio: 'inherit' })
   await waitOn('http://localhost:3737')
 
   const contents = await fetch(`http://localhost:3737/foo.ts`).then((res) =>

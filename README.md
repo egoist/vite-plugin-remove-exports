@@ -6,6 +6,12 @@
 
 [![npm version](https://badgen.net/npm/v/vite-plugin-remove-exports)](https://npm.im/vite-plugin-remove-exports) [![npm downloads](https://badgen.net/npm/dm/vite-plugin-remove-exports)](https://npm.im/vite-plugin-remove-exports)
 
+## Use Case
+
+It's useful if you want to implement something like Next.js' `getServerSideProps` or the `loader` function from Remix.js. This is done by creating a proxy of your bundle excluding the exports you specfied and using esbuild to bundle the proxy code in order to eliminate unneeded exports.
+
+Despite that we added an extra step to the build process, the plugin is still very fast due the how fast esbuild is.
+
 ## Install
 
 ```bash
