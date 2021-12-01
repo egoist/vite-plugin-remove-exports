@@ -34,7 +34,7 @@ export default {
 }
 ```
 
-Now if you have a `index.ts`:
+Now if you have a `index.tsx`:
 
 ```tsx
 import fs from 'fs'
@@ -52,7 +52,7 @@ export default ({ content }) => {
 
 The output will be:
 
-```ts
+```tsx
 export default ({ content }) => {
   return <div>{content}</div>
 }
