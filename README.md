@@ -77,6 +77,7 @@ removeExports({
 ## Caveats
 
 - `export *` is not supported.
+- When using both Vue's `<script setup>` and `<script>` tags in a single file, the imports in regular `<script>` tags can't be removed even if they're only used in removed exports.
 
 ## Sponsors
 

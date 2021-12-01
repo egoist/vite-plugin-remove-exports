@@ -2,7 +2,7 @@ import { Plugin } from 'vite'
 import { init, parse } from 'es-module-lexer'
 import esbuild from 'esbuild'
 
-const JS_RE = /\.(js|jsx|ts|tsx|mjs|cjs)$/
+const JS_RE = /\.(js|jsx|ts|tsx|mjs|cjs|vue)$/
 
 type MatchFunction = (
   filepath: string,
@@ -14,6 +14,8 @@ const VIRTUAL_ENTRY = '/__VIRTUAL_ENTRY__'
 const plugin = ({ match }: { match: MatchFunction }): Plugin => {
   return {
     name: 'vite-plugin-remove-exports',
+
+    enforce: 'post',
 
     async transform(code, id, ssr) {
       const namesToExclude = JS_RE.test(id) && match(id, ssr)
