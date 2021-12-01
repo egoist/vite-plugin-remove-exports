@@ -8,7 +8,7 @@
 
 ## Use Case
 
-It's useful if you want to implement something like Next.js' `getServerSideProps` or the `loader` function from Remix.js. This is done by creating a proxy of your bundle excluding the exports you specfied and using esbuild to bundle the proxy code in order to eliminate unneeded exports.
+It's useful if you want to implement something like Next.js' `getServerSideProps` or the `loader` function from Remix.js. This is done by creating a proxy of your code with the exports you specfied excluded and using esbuild to bundle the proxy code in order to eliminate unneeded exports.
 
 Despite that we added an extra step to the build process, the plugin is still very fast due the how fast esbuild is.
 
