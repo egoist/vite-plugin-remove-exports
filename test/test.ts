@@ -4,6 +4,7 @@ import { test } from 'uvu'
 import { execa } from 'execa'
 import assert from 'uvu/assert'
 import fetch from 'node-fetch'
+import kill from 'tree-kill'
 
 const waitOn = (url: string) =>
   new Promise((resolve) => {
@@ -35,7 +36,9 @@ test('dev', async () => {
     res.text(),
   )
   assert.not.match(contents, 'this_export_is_removed')
-  cmd.kill()
+  if (cmd.pid) {
+    kill(cmd.pid)
+  }
 })
 
 test.run()
