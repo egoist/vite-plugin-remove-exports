@@ -40,7 +40,7 @@
     "vite": "^2.6.14"
   },
   "dependencies": {
-    "es-module-lexer": "^0.9.3",
+    "es-module-lexer": "^0.10.0",
     "esbuild": "^0.14.1"
   },
   "peerDependencies": {
