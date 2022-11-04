@@ -18,7 +18,7 @@ const plugin = ({ match }: { match: MatchFunction }): Plugin => {
     enforce: 'post',
 
     async transform(code, id, ssr) {
-      const namesToExclude = JS_RE.test(id) && match(id, ssr)
+      const namesToExclude = JS_RE.test(id) && await match(id, ssr)
       if (!namesToExclude || namesToExclude.length === 0) return null
 
       if (/\bexport\s+\*\s+from\s+/.test(code)) {
